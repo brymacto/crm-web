@@ -18,9 +18,14 @@
         <tr><td><%= @contact.id %></td><td><%= @contact.first_name %></td><td><%= @contact.last_name %></td><td><%= @contact.email %></td><td><%= @contact.notes %></td></tr>
 
       </table>
-<ul>
-<li><a href="/contacts/<%= @contact.id %>/edit">Edit this contact</a></li>
-      <li><a href="/contacts">Back to view all contacts</a></li>
+      <form action="/contacts/<%= @contact.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" name="Delete Contact" value="Delete contact">
+      </form>
+
+      <ul>
+        <li><a href="/contacts/<%= @contact.id %>/edit">Edit this contact</a></li>
+        <li><a href="/contacts">Back to view all contacts</a></li>
       </ul>
     </section>
     <section>
