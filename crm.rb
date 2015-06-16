@@ -8,7 +8,16 @@ get '/' do
   erb :index
 end
 
-get '/contacts' do
+get 'style.css' do
+
+  end
+
+get "/contacts" do
   @crm_app_name = crm_app_name
+  @contacts = []
+  @contacts << Contact.new("Yehuda", "Katz", "yehuda@example.com", "Developer")
+  @contacts << Contact.new("Mark", "Zuckerberg", "mark@facebook.com", "CEO")
+  @contacts << Contact.new("Sergey", "Brin", "sergey@google.com", "Co-Founder")
   erb :contacts
 end
+
