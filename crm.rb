@@ -1,3 +1,4 @@
+require_relative 'contact'
 require 'sinatra'
 
 crm_app_name = "Bryan's CRM"
