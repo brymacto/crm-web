@@ -1,0 +1,113 @@
+body {
+
+  background-color:#F7F8F2;
+  font-family: 'Open Sans', sans-serif;
+  font-size:1em;
+  font-weight:300;
+  line-height:1.25;
+
+
+}
+
+a {color:#0184CD;
+text-decoration: none;}
+a:hover {
+  text-decoration: underline;
+}
+div#wrapper {
+  max-width:1140px;
+  margin:0 auto;
+}
+header {
+  margin:50px auto 25px auto;
+  padding-left:1.5%;
+  padding-right:1.5%;
+  }
+header ul {float:right;margin-top:2em;font-family:'Source Sans Pro',sans-serif;font-weight:100;}
+ol, ul {list-style:disc;margin:16px 0px 0px 0px;padding-left:30px;}
+li {margin-bottom:4px;padding-left:10px;}
+
+
+h1 {
+  color:#FC635B;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight:100;}
+
+  h1 {font-size:5em;margin-bottom:0px;}
+  h2 {font-size:1.5em;
+    background-color:#0184CD;
+    color:#fff;
+    font-weight:100;
+    padding:5px 15px;
+    margin-bottom:0.5em;}
+    h3 {font-size:1.25em;
+      color:#023373;
+      font-weight:600;}
+      h4 {font-weight:bold;
+        font-size:1.1em;}
+
+header ul{padding-left:0px;}
+header ul li {display:inline-block;margin-left:10px;}
+header ul li:first-child {margin-left:0px;padding-left:0px;}
+
+
+.org, .dates {
+  font-weight:600;
+  color:#023373;
+  }
+
+.dates {float:right;font-weight:100;}
+
+.entry {
+  border-bottom:1px dotted #8AACB2;
+  margin-bottom:20px;
+  padding-bottom:16px;
+}
+
+.entry ul {
+  font-size:0.9em;
+}
+.rating {
+  font-size:2em;
+  font-weight:bold;
+  color:#FC635B;
+  vertical-align:middle;
+float:right;
+line-height:18px;}
+section {
+  float: left;
+  margin: 0 1.5%;
+  width: 30%;
+}
+section.half {
+  width:47%;
+}
+section.twothirds {
+  width: 63%;
+}
+section.full {
+  width:100%;
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media (min-width: 551px) and (max-width: 700px) {
+h1 {font-size:3em;}
+h2 {font-size:1.25em;}
+h3 {font-size:1em;}
+.rating {font-size:1em;}
+.dates {float:none;}
+}
+
+@media (min-width: 320px) and (max-width: 550px) {
+/* Styles */
+  section, section.half, section.twothirds {
+    float:none;
+    width:95%;
+  }
+  header ul{
+    float:none;
+  }
+  h1 {font-size:2.5em;}
+  .dates {float:none;}
+}
