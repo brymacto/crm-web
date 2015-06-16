@@ -18,8 +18,10 @@
         <tr><td><%= @contact.id %></td><td><%= @contact.first_name %></td><td><%= @contact.last_name %></td><td><%= @contact.email %></td><td><%= @contact.notes %></td></tr>
 
       </table>
-
-      <a href="/contacts">< Back to view all contacts</a>
+<ul>
+<li><a href="/contacts/<%= @contact.id %>/edit">Edit this contact</a></li>
+      <li><a href="/contacts">Back to view all contacts</a></li>
+      </ul>
     </section>
     <section>
 
