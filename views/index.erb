@@ -2,17 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Home | <%= @crm_app_name %></title>
+  <title>Home | <%= $crm_app_name %></title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="wrapper">
-  <h1><a href="/"><%= @crm_app_name %></a></h1>
+  <div id="wrapper">
+    <header>
+      <h1><a href="/"><%= $crm_app_name %></a></h1>
+    </header>
+    <section class="twothirds">
+      <h2>Home</h2>
+      <P>Welcome to <%=$crm_app_name %>.  Use the menu on the right to get started.</P>
+
+
+      <!-- please complete me with links to other actions -->
+    </ul>
+  </section>
+  <section>
+
   <h2>Main menu</h2>
-<ul>
-  <li><a href="/contacts">View all contacts</a></li>
-  <!-- please complete me with links to other actions -->
-</ul>
+  <ul>
+
+    <li><a href="/">Home</a></li>
+    <li><a href="/contacts">View all contacts</a></li>
+    <li><a href="/contacts/new">Create new</a></li>
+  </ul>
+  </section>
 </div>
 </body>
 </html>

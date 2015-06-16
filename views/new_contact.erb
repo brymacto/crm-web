@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>New Contact | <%= @crm_app_name %></title>
+  <title>New Contact | <%= $crm_app_name %></title>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div id="wrapper">
-  <h1><a href="/"><%= @crm_app_name %></a></h1>
+    <header><h1><a href="/"><%= $crm_app_name %></a></h1>
+    </header>
+    <section class="twothirds">
   <h2>Create new Contact</h2>
   <form action="/contacts" method="post">
     <input type="text" name="first_name">
@@ -16,6 +18,17 @@
     <input type="text" name="note">
     <input type="submit" name="Submit">
   </form>
+  </section>
+    <section>
+
+  <h2>Main menu</h2>
+  <ul>
+
+    <li><a href="/">Home</a></li>
+    <li><a href="/contacts">View all contacts</a></li>
+    <li><a href="/contacts/new">Create new contact</a></li>
+  </ul>
+  </section>
   </div>
 </body>
 </html>
