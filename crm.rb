@@ -23,7 +23,7 @@ post '/contacts' do
   redirect to('/contacts')
 end
 
-get "/contacts/1000" do
-  @contact = @@rolodex.find(1000)
+get "/contacts/:id" do
+  @contact = @@rolodex.find(params[:id].to_i)
   erb :show_contact
 end
