@@ -1,3 +1,5 @@
+require_relative 'rolodex'
+
 class Contact
   attr_accessor :first_name, :last_name, :email, :notes
   # attr_reader :id

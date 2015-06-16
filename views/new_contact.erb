@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Contact | <%= @crm_app_name %></title>
+</head>
+<body>
+  <h1><%= @crm_app_name %></h1>
+  <h2>Create new Contact</h2>
+  <form action="/contacts" method="post">
+    <input type="text" name="first_name">
+    <input type="text" name="last_name">
+    <input type="text" name="email">
+    <input type="text" name="note">
+    <input type="submit" name="Submit">
+  </form>
+</body>
+</html>
+
