@@ -3,7 +3,9 @@
 require_relative 'rolodex'
 require_relative 'contact'
 require 'sinatra'
-$crm_app_name = "BJM CRM"
+@@crm_app_name = "BJM CRM"
+@@year = Time.now.year
+
 
 @@rolodex = Rolodex.new
 get '/' do
@@ -35,6 +37,7 @@ end
 
 get "/contacts/:id/edit" do
   @contact = @@rolodex.find(params[:id].to_i)
+  @page_name = "Edit contact: #{@contact.first_name} #{@contact.last_name}"
   if @contact
     erb :edit_contact
   else

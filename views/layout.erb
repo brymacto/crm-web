@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><%= @page_name %> | <%= $crm_app_name %></title>
+  <title><%= @page_name %> | <%= @@crm_app_name %></title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <div id="wrapper">
     <header>
-      <h1><a href="/"><%= $crm_app_name %></a></h1>
+      <h1><a href="/"><%= @@crm_app_name %></a></h1>
     </header>
 
   <section>
@@ -29,7 +29,10 @@
       <!-- please complete me with links to other actions -->
     </ul>
   </section>
-
+<div style="clear:both"></div>
+<footer>
+&copy; <%= @@year %> Bryan MacDiarmid
+</footer>
 </div>
 </body>
 </html>
