@@ -75,6 +75,7 @@ delete "/contacts/:id" do
   @contact = @@rolodex.find(params[:id].to_i)
   if @contact
     @@rolodex.remove_contact(@contact)
+    get_crm_count
     redirect to("/contacts")
   else
     raise Sinatra::NotFound

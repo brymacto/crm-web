@@ -29,8 +29,13 @@ font-weight:bold;
 
 }
 
+a#backto {
+  display:block;
+  text-align:right;
+  padding:3px;
+}
 
-footer {
+body > div.wrapper > footer {
   border-top:1px dotted #8AACB2;
   display:block;
   clear: both;

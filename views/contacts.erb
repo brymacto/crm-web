@@ -25,8 +25,16 @@
     <td>
       <a href="/contacts/<%= contact.id %>"><i class="fa fa-ellipsis-h"></i></a>
       <a href="/contacts/<%= contact.id %>/edit"><i class="fa fa-pencil fa-fw"></i></a>
+      <a href="javascript:{}" onclick="document.getElementById('delete_form_<%= contact.id %>').submit(); return false;"><i class="fa fa-trash"></i></a>
     </td>
   </tr>
 
+<form action="/contacts/<%= contact.id %>" method="post" id="delete_form_<%= contact.id %>" style="display:none">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" name="Delete Contact" value="Delete contact" style="display:none">
+</form>
+
   <% end %>
+
+
 </table>

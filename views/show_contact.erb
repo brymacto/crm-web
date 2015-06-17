@@ -4,15 +4,21 @@
   <tr><th>Last Name</th><td><%= @contact.last_name %></td></tr>
   <tr><th>Email</th><td><%= @contact.email %></td></tr>
   <tr><th>Notes</th><td><%= @contact.notes %></td></tr>
-  <tr><th>Actions</th><td><a href="/contacts/<%= @contact.id %>/edit"><i class="fa fa-pencil fa-fw"></i></a></td></tr>
+  <tr><th>Actions</th><td>
+    <a href="/contacts/<%= @contact.id %>/edit"><i class="fa fa-pencil fa-fw"></i></a>
+    <a href="javascript:{}" onclick="document.getElementById('delete_form').submit(); return false;"><i class="fa fa-trash"></i></a>
+
+
+  </td></tr>
 
 </table>
-<form action="/contacts/<%= @contact.id %>" method="post">
+<form action="/contacts/<%= @contact.id %>" method="post" id="delete_form" style="display:none">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" name="Delete Contact" value="Delete contact">
 </form>
 
-<ul>
-  <li><a href="/contacts/<%= @contact.id %>/edit">Edit this contact</a></li>
-  <li><a href="/contacts">Back to view all contacts</a></li>
-</ul>
+<footer>
+<a href="/contacts/<%= @contact.id - 1 %>"><i class="fa fa-arrow-circle-left"></i> Previous record
+<a href="/contacts">Back to view all contacts</a>
+</footer>
+<a href="/contacts" id="backto"><i class="fa fa-arrow-circle-left"></i> Back to view all contacts</a>
