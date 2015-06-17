@@ -89,7 +89,7 @@ text-decoration: none;
 header nav {float:right;}
 header nav ul{padding-left:0px;float:right;font-family:'Source Sans Pro',sans-serif;font-weight:100;}
 header nav ul li {display:inline-block;margin-left;padding:10px;}
-header nav ul li a {color:#023373;font-size:1.25em;font-weight:300;}
+header nav ul li a {color:#FC635B;font-size:1.25em;font-weight:300;}
 header nav ul li a:hover {text-decoration: none;color:#FC635B;padding-bottom:5px;border-bottom:3px solid #FC635B;  }
 /*header nav ul li:first-child {margin-left:0px;padding-left:0px;}*/
 
