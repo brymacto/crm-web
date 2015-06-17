@@ -1,44 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Contacts | <%= $crm_app_name %></title>
-  <link rel="stylesheet" href="../style.css">
-</head>
-<body>
-  <div id="wrapper">
-    <header><h1><a href="/"><%= $crm_app_name %></a></h1>
-    </header>
-    <section class="twothirds">
-      <h2>View contact</h2>
+<table>
+  <tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Notes</th></tr>
 
-      <table>
-        <tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Notes</th></tr>
+  <tr><td><%= @contact.id %></td><td><%= @contact.first_name %></td><td><%= @contact.last_name %></td><td><%= @contact.email %></td><td><%= @contact.notes %></td></tr>
 
-        <tr><td><%= @contact.id %></td><td><%= @contact.first_name %></td><td><%= @contact.last_name %></td><td><%= @contact.email %></td><td><%= @contact.notes %></td></tr>
+</table>
+<form action="/contacts/<%= @contact.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" name="Delete Contact" value="Delete contact">
+</form>
 
-      </table>
-      <form action="/contacts/<%= @contact.id %>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" name="Delete Contact" value="Delete contact">
-      </form>
-
-      <ul>
-        <li><a href="/contacts/<%= @contact.id %>/edit">Edit this contact</a></li>
-        <li><a href="/contacts">Back to view all contacts</a></li>
-      </ul>
-    </section>
-    <section>
-
-      <h2>Main menu</h2>
-      <ul>
-
-        <li><a href="/">Home</a></li>
-        <li><a href="/contacts">View all contacts</a></li>
-        <li><a href="/contacts/new">Create new contact</a></li>
-      </ul>
-    </section>
-  </div>
-</body>
-</html>
-
+<ul>
+  <li><a href="/contacts/<%= @contact.id %>/edit">Edit this contact</a></li>
+  <li><a href="/contacts">Back to view all contacts</a></li>
+</ul>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= @page_name %> | <%= $crm_app_name %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <h1><a href="/"><%= $crm_app_name %></a></h1>
+    </header>
+
+  <section>
+
+    <h2>Main menu</h2>
+    <ul>
+
+      <li><a href="/">Home</a></li>
+      <li><a href="/contacts">View all contacts</a></li>
+      <li><a href="/contacts/new">Create new</a></li>
+    </ul>
+  </section>
+    <section class="twothirds">
+      <h2><%= @page_name %></h2>
+      <%= yield %>
+
+
+      <!-- please complete me with links to other actions -->
+    </ul>
+  </section>
+
+</div>
+</body>
+</html>
+

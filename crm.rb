@@ -7,24 +7,25 @@ $crm_app_name = "BJM CRM"
 
 @@rolodex = Rolodex.new
 get '/' do
+  @page_name = "Home"
   erb :index
 end
 
 get "/contacts" do
+  @page_name = "View all contacts"
   erb :contacts
 end
 
 get '/contacts/new' do
+  @page_name = "Add new contact"
   erb :new_contact
 end
 
-post '/contacts' do
-  @@rolodex.add_contact(params[:first_name], params[:last_name], params[:email], params[:notes])
-  redirect to('/contacts')
-end
+
 
 get "/contacts/:id" do
   @contact = @@rolodex.find(params[:id].to_i)
+  @page_name = "View contact: #{@contact.first_name} #{@contact.last_name}"
   if @contact
     erb :show_contact
   else

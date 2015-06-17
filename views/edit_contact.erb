@@ -1,39 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Contacts | <%= $crm_app_name %></title>
-  <link rel="stylesheet" href="../../style.css">
-</head>
-<body>
-  <div id="wrapper">
-    <header><h1><a href="/"><%= $crm_app_name %></a></h1>
-    </header>
-    <section class="twothirds">
-      <h2>Edit contact</h2>
+<form action="/contacts/<%= @contact.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <div>First name: <input type="text" name="first_name" value="<%= @contact.first_name %>"></div>
+  <div>Last name: <input type="text" name="last_name" value="<%= @contact.last_name %>"></div>
+  <div>Email: <input type="text" name="email" value="<%= @contact.email %>"></div>
+  <div>Note: <input type="text" name="notes" value="<%= @contact.notes %>"></div>
+  <div><input type="submit" name="Submit" id="submit"></div>
+</form>
 
-  <form action="/contacts/<%= @contact.id %>" method="post">
-    <input type="hidden" name="_method" value="put">
-    <div>First name: <input type="text" name="first_name" value="<%= @contact.first_name %>"></div>
-    <div>Last name: <input type="text" name="last_name" value="<%= @contact.last_name %>"></div>
-    <div>Email: <input type="text" name="email" value="<%= @contact.email %>"></div>
-    <div>Note: <input type="text" name="notes" value="<%= @contact.notes %>"></div>
-    <div><input type="submit" name="Submit" id="submit"></div>
-  </form>
-
-      <a href="/contacts">< Back to view all contacts</a>
-    </section>
-    <section>
-
-      <h2>Main menu</h2>
-      <ul>
-
-        <li><a href="/">Home</a></li>
-        <li><a href="/contacts">View all contacts</a></li>
-        <li><a href="/contacts/new">Create new contact</a></li>
-      </ul>
-    </section>
-  </div>
-</body>
-</html>
-
+<a href="/contacts">< Back to view all contacts</a>
