@@ -8,6 +8,9 @@ body {
 
 
 }
+p {
+  margin-top:1em;
+}
 table {
   border-collapse: collapse;
   margin-bottom: 1em;
@@ -22,20 +25,10 @@ th, td {
 
 th {
 color:#023373;
+font-weight:bold;
 
 }
-form >div {
-  margin:20px 0px;
-}
-form > div > input {
-width:200px;
-align:right;
-width:100%;
-height:1.25em;
-display:block;
-margin-top:5px;
-font-size:1.5em;
-}
+
 
 footer {
   border-top:1px dotted #8AACB2;
@@ -58,7 +51,7 @@ text-decoration: none;}
 a:hover {
   text-decoration: underline;
 }
-div#wrapper {
+div.wrapper {
   max-width:1140px;
   margin:0 auto;
 }
@@ -67,7 +60,7 @@ header {
   padding-left:1.5%;
   padding-right:1.5%;
   }
-header ul {float:right;margin-top:2em;font-family:'Source Sans Pro',sans-serif;font-weight:100;}
+
 ol, ul {list-style:disc;margin:16px 0px 0px 0px;padding-left:30px;}
 li {margin-bottom:4px;padding-left:10px;}
 
@@ -78,7 +71,8 @@ h1, h1>a, h1>a:hover {
   font-weight:100;
 text-decoration: none;}
 
-  h1 {font-size:5em;margin-bottom:0px;}
+  h1 {font-size:5em;margin-bottom:0px;display:inline;
+    font-weight:100;}
   h2 {font-size:1.5em;
     background-color:#0184CD;
     color:#fff;
@@ -91,34 +85,13 @@ text-decoration: none;}
       h4 {font-weight:bold;
         font-size:1.1em;}
 
-header ul{padding-left:0px;}
-header ul li {display:inline-block;margin-left:10px;}
-header ul li:first-child {margin-left:0px;padding-left:0px;}
+header nav {float:right;}
+header nav ul{padding-left:0px;float:right;font-family:'Source Sans Pro',sans-serif;font-weight:100;}
+header nav ul li {display:inline-block;margin-left;padding:10px;}
+header nav ul li a {color:#023373;font-size:1.25em;font-weight:300;}
+header nav ul li a:hover {text-decoration: none;color:#FC635B;  }
+/*header nav ul li:first-child {margin-left:0px;padding-left:0px;}*/
 
-
-.org, .dates {
-  font-weight:600;
-  color:#023373;
-  }
-
-.dates {float:right;font-weight:100;}
-
-.entry {
-  border-bottom:1px dotted #8AACB2;
-  margin-bottom:20px;
-  padding-bottom:16px;
-}
-
-.entry ul {
-  font-size:0.9em;
-}
-.rating {
-  font-size:2em;
-  font-weight:bold;
-  color:#FC635B;
-  vertical-align:middle;
-float:right;
-line-height:18px;}
 section {
   float: left;
   margin: 0 1.5%;
@@ -138,6 +111,19 @@ table {
   width:100%;
 }
 
+
+form >div {
+  margin:20px 0px;
+}
+form > div > input {
+width:200px;
+align:right;
+width:100%;
+height:1.25em;
+display:block;
+margin-top:5px;
+font-size:1.5em;
+}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media (min-width: 551px) and (max-width: 700px) {

@@ -8,6 +8,14 @@ require 'sinatra'
 
 
 @@rolodex = Rolodex.new
+
+def get_crm_count
+  @@crm_count = @@rolodex.contacts.length
+end
+
+get_crm_count
+puts "crm count: #{@@crm_count}"
+
 get '/' do
   @page_name = "Home"
   erb :index
@@ -23,6 +31,11 @@ get '/contacts/new' do
   erb :new_contact
 end
 
+post '/contacts' do
+  @@rolodex.add_contact(params[:first_name], params[:last_name], params[:email], params[:notes])
+  get_crm_count
+  redirect to('/contacts')
+end
 
 
 get "/contacts/:id" do
