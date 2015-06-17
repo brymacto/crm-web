@@ -69,7 +69,8 @@ h1, h1>a, h1>a:hover {
   color:#FC635B;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight:100;
-text-decoration: none;}
+text-decoration: none;
+}
 
   h1 {font-size:5em;margin-bottom:0px;display:inline;
     font-weight:100;}
@@ -89,7 +90,7 @@ header nav {float:right;}
 header nav ul{padding-left:0px;float:right;font-family:'Source Sans Pro',sans-serif;font-weight:100;}
 header nav ul li {display:inline-block;margin-left;padding:10px;}
 header nav ul li a {color:#023373;font-size:1.25em;font-weight:300;}
-header nav ul li a:hover {text-decoration: none;color:#FC635B;  }
+header nav ul li a:hover {text-decoration: none;color:#FC635B;padding-bottom:5px;border-bottom:3px solid #FC635B;  }
 /*header nav ul li:first-child {margin-left:0px;padding-left:0px;}*/
 
 section {
