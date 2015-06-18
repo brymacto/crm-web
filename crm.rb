@@ -1,12 +1,8 @@
-
-
 require_relative 'rolodex'
 require_relative 'contact'
 require 'sinatra'
 @@crm_app_name = "BJM CRM"
 @@year = Time.now.year
-
-
 @@rolodex = Rolodex.new
 
 def get_crm_count
@@ -25,6 +21,7 @@ def get_prev_contact_id(current_id)
 end
 
 def get_next_contact_id(current_id)
+  puts "************Current ID: #{current_id}.  @@rolodex.find(current_id): #{@@rolodex.find(current_id)}" # Troubleshooting situation in which item has been deleted.
   @next_contact = @@rolodex.find(current_id).id + 1
   if @@rolodex.find(@next_contact)
     @@rolodex.find(@next_contact).id
@@ -40,6 +37,9 @@ end
 
 get "/contacts" do
   @page_name = "View all contacts"
+  @deleted = params[:deleted]
+  @deleted_id = params[:deleted_id]
+  puts "//////////////Deleted ID: #{@deleted_id}.  Class: #{@deleted_id}.class "
   erb :contacts
 end
 
@@ -53,7 +53,6 @@ post '/contacts' do
   get_crm_count
   redirect to('/contacts')
 end
-
 
 get "/contacts/:id" do
   @contact = @@rolodex.find(params[:id].to_i)
@@ -93,7 +92,7 @@ delete "/contacts/:id" do
   if @contact
     @@rolodex.remove_contact(@contact)
     get_crm_count
-    redirect to("/contacts")
+    redirect to("/contacts?deleted=true&deleted_id=#{@contact.id}")
   else
     raise Sinatra::NotFound
   end

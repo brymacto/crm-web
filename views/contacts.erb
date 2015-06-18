@@ -1,3 +1,7 @@
+<% if @deleted %>
+  <p class="notification_msg">Contact ID <%= @deleted_id %> has been successfully deleted. <a href="/contacts"><i class="fa fa-times"></i></a></p>
+<% end %>
+
 <table>
   <tr>
     <th>ID</th>

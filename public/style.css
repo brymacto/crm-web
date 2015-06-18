@@ -54,6 +54,18 @@ body > div.wrapper > footer {
   text-align:right;
 }
 
+p.notification_msg {
+padding:10px;
+border:1px solid #FC635B;
+color:#FC635B;
+margin-bottom:15px;}
+
+p.notification_msg a {
+  color:#FC635B;
+  float:right;
+}
+
+
 a {color:#0184CD;
 text-decoration: none;}
 a:hover {
@@ -133,7 +145,7 @@ font-weight:100;
 width:15%;
 float:left;
 }
-form > div.field > input {
+form > div.field > input, form > div.field > textarea {
 box-sizing:border-box;
 width:85%;
 float:right;
@@ -147,7 +159,7 @@ font-weight:100;
 font-family: 'Open Sans', sans-serif;
 }
 
-input[type=text] {
+input[type=text], form > div.field > textarea {
   background-color:#FFFFFF;
   border:1px solid #EBEBEB;
   padding:10px 5px;

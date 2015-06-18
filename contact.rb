@@ -11,4 +11,8 @@ class Contact
     @email = email
     @notes = notes
   end
+
+  def clear_empty
+    @contacts.reject!(&:empty?)
+  end
 end

@@ -46,6 +46,7 @@ class Rolodex
 
   def remove_contact(contact)
     @contacts.delete(contact)
+    @contacts.reject! { |contact| contact == nil }
   end
 
   def find(contact_id)

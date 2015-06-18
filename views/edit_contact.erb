@@ -3,7 +3,12 @@
   <div class="field"><label for="">First name</label><input type="text" name="first_name" value="<%= @contact.first_name %>"></div>
   <div class="field"><label for="">Last name</label><input type="text" name="last_name" value="<%= @contact.last_name %>"></div>
   <div class="field"><label for="">Email</label><input type="text" name="email" value="<%= @contact.email %>"></div>
-  <div class="field"><label for="">Note</label><input type="text" name="notes" value="<%= @contact.notes %>"></div>
+      <div class="field">
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="notes" cols="30" rows="10" placeholder="Add notes about this contact here." value="<%= @contact.notes %>"><%= @contact.notes %></textarea>
+    </div>
+
+<!--   <div class="field"><label for="">Note</label><input type="text" name="notes" value="<%= @contact.notes %>"></div> -->
     <div style="clear:both;"></div>
     <div class="field">
     <input type="submit" name="Submit" id="submit" />
