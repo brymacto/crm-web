@@ -19,7 +19,7 @@
 
 <footer>
 
-<a class="prev" href="/contacts/<%= @@rolodex.find(@contact.id).id - 1 %>"><i class="fa fa-arrow-circle-left"></i> Previous record</a>
+<a class="prev" href="/contacts/<%= get_prev_contact_id(@contact.id) %>"><i class="fa fa-arrow-circle-left"></i> Previous record</a>
 <a class="backto" href="/contacts">Back to view all contacts</a>
-<a class="next" href="/contacts/<%= @@rolodex.find(@contact.id).id + 1 %>"><i class="fa fa-arrow-circle-right"></i> Next record</a>
+<a class="next" href="/contacts/<%= get_next_contact_id(@contact.id) %>"><i class="fa fa-arrow-circle-right"></i> Next record</a>
 </footer>

@@ -4,7 +4,9 @@ class Rolodex
   @@id = 1000
 
   attr_reader :id
-
+  def length
+    @contacts.length
+  end
   def add_fake_contacts!
     add_contact("Fernando", "Muslera", "fernandomuslera@gmail.com", "GK")
     add_contact("Rodrigo", "Muñoz", "rod_munoz@hotmail.com", "GK")
@@ -48,6 +50,10 @@ class Rolodex
 
   def find(contact_id)
     @contacts.find {|contact| contact.id == contact_id }
+  end
+
+  def find_by_element_id(element_id)
+    @contacts[element_id]
   end
 
 

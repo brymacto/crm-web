@@ -15,6 +15,23 @@ end
 
 get_crm_count
 
+def get_prev_contact_id(current_id)
+  @prev_contact = @@rolodex.find(current_id).id - 1
+  if @@rolodex.find(@prev_contact)
+    @@rolodex.find(@prev_contact).id
+  else
+    @@rolodex.find_by_element_id(@@rolodex.length - 1).id
+  end
+end
+
+def get_next_contact_id(current_id)
+  @next_contact = @@rolodex.find(current_id).id + 1
+  if @@rolodex.find(@next_contact)
+    @@rolodex.find(@next_contact).id
+  else
+    @@rolodex.find_by_element_id(0).id
+  end
+end
 
 get '/' do
   @page_name = "Home"
