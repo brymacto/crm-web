@@ -14,7 +14,7 @@ def get_crm_count
 end
 
 get_crm_count
-puts "crm count: #{@@crm_count}"
+
 
 get '/' do
   @page_name = "Home"

@@ -50,6 +50,7 @@ class Rolodex
     @contacts.find {|contact| contact.id == contact_id }
   end
 
+
   def all
     @contacts
   end

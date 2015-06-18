@@ -2,7 +2,7 @@
   <tr><th>ID</th><td><%= @contact.id %></td></tr>
   <tr><th>First Name</th><td><%= @contact.first_name %></td></tr>
   <tr><th>Last Name</th><td><%= @contact.last_name %></td></tr>
-  <tr><th>Email</th><td><%= @contact.email %></td></tr>
+  <tr><th>Email</th><td><a href="mailto:<%= @contact.email %>"><%= @contact.email %></a></td></tr>
   <tr><th>Notes</th><td><%= @contact.notes %></td></tr>
   <tr><th>Actions</th><td>
     <a href="/contacts/<%= @contact.id %>/edit"><i class="fa fa-pencil fa-fw"></i></a>
@@ -18,7 +18,8 @@
 </form>
 
 <footer>
-<a href="/contacts/<%= @contact.id - 1 %>"><i class="fa fa-arrow-circle-left"></i> Previous record
-<a href="/contacts">Back to view all contacts</a>
+
+<a class="prev" href="/contacts/<%= @@rolodex.find(@contact.id).id - 1 %>"><i class="fa fa-arrow-circle-left"></i> Previous record</a>
+<a class="backto" href="/contacts">Back to view all contacts</a>
+<a class="next" href="/contacts/<%= @@rolodex.find(@contact.id).id + 1 %>"><i class="fa fa-arrow-circle-right"></i> Next record</a>
 </footer>
-<a href="/contacts" id="backto"><i class="fa fa-arrow-circle-left"></i> Back to view all contacts</a>

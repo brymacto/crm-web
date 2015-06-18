@@ -28,6 +28,15 @@ color:#023373;
 font-weight:bold;
 
 }
+section footer {clear:both;}
+section footer a {
+font-size:0.85em;
+width:33%;
+float:left;
+}
+section footer a.prev {}
+section footer a.backto {text-align:center;}
+section footer a.next {text-align:right;}
 
 a#backto {
   display:block;
