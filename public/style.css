@@ -54,12 +54,6 @@ body > div.wrapper > footer {
   text-align:right;
 }
 
-form > div > input#submit {
-  width:auto;
-  font-size:2.5em;
-  padding:30px;
-
-}
 a {color:#0184CD;
 text-decoration: none;}
 a:hover {
@@ -126,19 +120,23 @@ table {
   width:100%;
 }
 form > div.field {
-  position:relative;
+  /*position:relative;*/
+  clear:both;
 
 }
 
 form > div.field > label {
 display:block;
 margin-top:15px;
-color:#023373;
-font-weight:bold;
+/*color:#023373;*/
+font-weight:100;
+width:15%;
+float:left;
 }
 form > div.field > input {
 box-sizing:border-box;
-width:100%;
+width:85%;
+float:right;
 line-height:1.25em;
 display:block;
 margin-top:5px;
@@ -151,25 +149,29 @@ font-family: 'Open Sans', sans-serif;
 
 input[type=text] {
   background-color:#FFFFFF;
-  border:1px solid #979797;
+  border:1px solid #EBEBEB;
   padding:10px 5px;
 }
-input[type=submit] {
+form > div.field > input[type=submit] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  width:auto;
   font-family: 'Open Sans', sans-serif;
   padding:15px 20px;
   display:block;
-  margin:20px auto;
+  float:none;
+  margin-left:15%;
+  margin-top:10px;
   background-color:#FC635B;
   color:#fff;
   border-width:0px;
-  font-size:1.15em;
+  font-size:1em;
+  clear:both;
 }
 input[type=text]:focus {
-  border:3px solid #FC635B;
-  background-color:#fff;
+  /*border:3px solid #FC635B;*/
+  /*background-color:#fff;*/
 }
 
 
