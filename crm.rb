@@ -1,7 +1,7 @@
 require_relative 'rolodex'
 require_relative 'contact'
 require 'sinatra'
-@@crm_app_name = "BJM CRM"
+@@crm_app_name = "BoomCRM"
 @@year = Time.now.year
 @@rolodex = Rolodex.new
 
@@ -37,9 +37,8 @@ end
 
 get "/contacts" do
   @page_name = "View all contacts"
-  @deleted = params[:deleted]
-  @deleted_id = params[:deleted_id]
-  puts "//////////////Deleted ID: #{@deleted_id}.  Class: #{@deleted_id}.class "
+  @notification = params[:notification]
+  @notification_id = params[:notification_id]
   erb :contacts
 end
 
@@ -49,9 +48,9 @@ get '/contacts/new' do
 end
 
 post '/contacts' do
-  @@rolodex.add_contact(params[:first_name], params[:last_name], params[:email], params[:notes])
+  new_id = (@@rolodex.add_contact(params[:first_name], params[:last_name], params[:email], params[:notes]) - 1)
   get_crm_count
-  redirect to('/contacts')
+  redirect to("/contacts?notification=added&notification_id=#{new_id}")
 end
 
 get "/contacts/:id" do
@@ -92,7 +91,7 @@ delete "/contacts/:id" do
   if @contact
     @@rolodex.remove_contact(@contact)
     get_crm_count
-    redirect to("/contacts?deleted=true&deleted_id=#{@contact.id}")
+    redirect to("/contacts?notification=deleted&notification_id=#{@contact.id}")
   else
     raise Sinatra::NotFound
   end

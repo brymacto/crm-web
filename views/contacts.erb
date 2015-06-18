@@ -1,5 +1,9 @@
-<% if @deleted %>
-  <p class="notification_msg">Contact ID <%= @deleted_id %> has been successfully deleted. <a href="/contacts"><i class="fa fa-times"></i></a></p>
+<% if @notification != nil && @notification.downcase == "deleted" %>
+  <p class="notification_msg">Contact ID <%= @notification_id %> has been successfully deleted. <a href="/contacts"><i class="fa fa-times"></i></a></p>
+<% end %>
+
+<% if @notification != nil && @notification.downcase == "added" %>
+  <p class="notification_msg">Contact ID <%= @notification_id %> has been successfully added. <a href="/contacts"><i class="fa fa-times"></i></a></p>
 <% end %>
 
 <table>
