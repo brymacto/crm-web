@@ -1,10 +1,33 @@
 <form action="/contacts/<%= @contact.id %>" method="post">
   <input type="hidden" name="_method" value="put">
-  <div>First name: <input type="text" name="first_name" value="<%= @contact.first_name %>"></div>
-  <div>Last name: <input type="text" name="last_name" value="<%= @contact.last_name %>"></div>
-  <div>Email: <input type="text" name="email" value="<%= @contact.email %>"></div>
-  <div>Note: <input type="text" name="notes" value="<%= @contact.notes %>"></div>
-  <div><input type="submit" name="Submit" id="submit"></div>
+  <div class="field"><label for="">First name</label><input type="text" name="first_name" value="<%= @contact.first_name %>"></div>
+  <div class="field"><label for="">Last name</label><input type="text" name="last_name" value="<%= @contact.last_name %>"></div>
+  <div class="field"><label for="">Email</label><input type="text" name="email" value="<%= @contact.email %>"></div>
+  <div class="field"><label for="">Note</label><input type="text" name="notes" value="<%= @contact.notes %>"></div>
+  <input type="submit" name="Submit" id="submit">
 </form>
 
 <a href="/contacts">< Back to view all contacts</a>
+
+
+
+<!--   <form action="/contacts" method="post">
+    <div class="field">
+      <label for="first_name">First Name</label>
+      <input type="text" name="first_name" id="first_name" />
+    </div>
+    <div class="field">
+      <label for="last_name">Last Name</label>
+      <input type="text" name="last_name" id="last_name" />
+    </div>
+    <div class="field">
+      <label for="email">Email Name</label>
+      <input type="text" name="email" id="email" />
+    </div>
+    <div class="field">
+      <label for="notes">Notes</label>
+      <input type="text" name="notes" id="notes" />
+    </div>
+    <input type="submit" name="Submit" id="#submit" />
+  </form>
+ -->
