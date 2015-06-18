@@ -6,6 +6,10 @@
   <p class="notification_msg">Contact ID <%= @notification_id %> has been successfully added. <a href="/contacts"><i class="fa fa-times"></i></a></p>
 <% end %>
 
+<% if @notification != nil && @notification.downcase == "edited" %>
+  <p class="notification_msg">Contact ID <%= @notification_id %> has been successfully edited. <a href="/contacts"><i class="fa fa-times"></i></a></p>
+<% end %>
+
 <table>
   <tr>
     <th>ID</th>
