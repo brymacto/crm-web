@@ -58,12 +58,12 @@ h2 {
 
 aside h2 {
   background-color: inherit;
-  color:#8AACB2;
-  border-left:5px solid #8AACB2;
+  color: #8AACB2;
+  border-left: 5px solid #8AACB2;
 }
 
 aside div {
-  margin:0px 0px 30px 0px;
+  margin: 0px 0px 30px 0px;
 }
 
 h3 {
@@ -90,11 +90,11 @@ td {
 }
 
 table.showcontact th {
-  width:33%;
+  width: 33%;
 }
 
 table.showcontact td {
-  width:66%;
+  width: 66%;
 }
 
 th,
@@ -136,12 +136,11 @@ body > div.wrapper > footer {
   margin: 25px 1.5%;
   padding-top: 10px;
   font-size: 0.75em;
-
 }
 
 body > div.wrapper > footer span.copy {
-float:right;
-  }
+  float: right;
+}
 
 div.wrapper {
   max-width: 1140px;
@@ -205,8 +204,35 @@ aside {
   width: 31%;
 }
 
-aside form {
-  width:100%;
+aside form input[type=search] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 80%;
+  line-height: 1.25em;
+  font-size: 1.1em;
+  height: 35px;
+  font-weight: normal;
+  border: 1px solid #dddddd;
+  color: #3F3F3F;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+}
+
+aside form input[type=submit] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 15%;
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px 10px;
+  display: inline;
+  float: right;
+  margin-top: 0px;
+  background-color: #FC635B;
+  color: #fff;
+  border-width: 0px;
+  font-size: 1em;
+  height: 35px;
 }
 
 section.full {
@@ -252,6 +278,7 @@ form > div.field > textarea {
   display: block;
   font-weight: 100;
   font-family: 'Open Sans', sans-serif;
+  color: #3F3F3F;
 }
 
 input[type=text],
