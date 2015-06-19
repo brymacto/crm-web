@@ -1,12 +1,6 @@
-<% if @notification != nil && @notification.downcase == "deleted" %>
-  <p class="notification_msg">Contact ID <%= @notification_id %> has been successfully deleted. <a href="/contacts"><i class="fa fa-times"></i></a></p>
-<% end %>
-<% if @notification != nil && @notification.downcase == "added" %>
-  <p class="notification_msg">Contact ID <%= @notification_id %> has been successfully added. <a href="/contacts"><i class="fa fa-times"></i></a></p>
-<% end %>
-<% if @notification != nil && @notification.downcase == "edited" %>
-  <p class="notification_msg">Contact ID <%= @notification_id %> has been successfully edited. <a href="/contacts"><i class="fa fa-times"></i></a></p>
-<% end %>
+
+  <p class="notification_msg">You are viewing results for search term <%= @search_string %> <a href="/contacts"><i class="fa fa-arrow-circle-o-left"></i> Return to all contacts</a></p>
+
 <table>
   <tr>
     <th>ID</th>
@@ -15,7 +9,7 @@
     <th>Email</th>
     <th>Actions</th>
   </tr>
-  <% @contacts.each do |contact| %>
+  <% get_search_results(@search_string).each do |contact| %>
   <tr>
     <td>
       <a href="/contacts/<%= contact.id %>"><%= contact.id %></a>

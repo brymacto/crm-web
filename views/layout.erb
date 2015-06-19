@@ -20,26 +20,29 @@
         </ul>
       </nav>
     </header>
-
     <section class="twothirds">
       <h2><%= @page_name %></h2>
       <%= yield %>
     </ul>
   </section>
-
   <aside>
+    <div>
+      <h2>Search</h2>
+      <form action="/search" method="get">
+        <input type="search" name="search_string" id="search_string" placeholder="Search first or last name" />
+        <input type="submit" name="Submit" id="submit" value="Go"/>
+      </form>
+    </div>
 
     <div>
       <h2>Stats</h2>
       Number of contacts: <%= @@crm_count %>
     </div>
-
     <div>
       <h2>Support</h2>
       <p>Need help? Email <a href="mailto:brymac@gmail.com">brymac@gmail.com</a>.</p>
     </div>
   </aside>
-
   <div style="clear:both"></div>
   <footer>
     &copy; <%= @@year %> Bryan MacDiarmid
@@ -47,4 +50,3 @@
 </div>
 </body>
 </html>
-

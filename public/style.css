@@ -89,6 +89,14 @@ td {
   border: 1px solid #DDDDDD;
 }
 
+table.showcontact th {
+  width:33%;
+}
+
+table.showcontact td {
+  width:66%;
+}
+
 th,
 td {
   padding: 7px;
@@ -191,6 +199,10 @@ section.twothirds {
 
 aside {
   width: 31%;
+}
+
+aside form {
+  width:100%;
 }
 
 section.full {

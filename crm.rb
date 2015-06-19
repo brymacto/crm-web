@@ -13,40 +13,12 @@ class Contact
   property :note, String
 end
 
-# def add_contact(first_name, last_name, email, note)
-#   contact = Contact.create(
-#     :first_name => first_name,
-#     :last_name => last_name,
-#     :email => email,
-#     :note => note
-#   )
-# end
-
-# def add_fake_contacts!
-#   add_contact("Fernando", "Muslera", "fernandomuslera@gmail.com", "GK")
-#   add_contact("Rodrigo", "Muñoz", "rod_munoz@hotmail.com", "GK")
-#   add_contact("Martín", "Silva", "silvamar@gmail.com", "GK")
-#   add_contact("Carlos", "Sánchez", "c_sanchez@ymail.com", "MF")
-#   add_contact("Cristian", "Rodríguez", "rodriguezcristian@gmail.com", "MF")
-#   add_contact("Giorgian", "De Arrascaeta", "giorgiandea@gmail.com", "MF")
-#   add_contact("Nicolás", "Lodeiro", "thenicolas@hotmail.com", "MF")
-#   add_contact("Guzmán", "Pereira", "periera1991@gmail.com", "MF")
-#   add_contact("Egidio", "Arévalo Ríos", "egiegidio@gmail.com", "MF")
-#   add_contact("Álvaro", "González", "alvgonza@gmail.com", "DF")
-#   add_contact("José", "Giménez", "joseg@gmail.com", "DF")
-#   add_contact("Diego", "Godín", "mr_godin@yahoo.com", "DF")
-#   add_contact("Jorge", "Fucile", "fucile_jorge@hotmail.com", "DF")
-#   add_contact("Álvaro", "Periera", "aperiera@gmail.com", "DF")
-#   add_contact("Gastón", "Silva", "bigsilva@yahoo.com", "DF")
-#   add_contact("Mathías", "Corujo", "corujom@gmail.com", "DF")
-#   add_contact("Maxi", "Pereira", "maximaxip@gmail.com", "DF")
-#   add_contact("Sebastián", "Coates", "theseb1990@gmail.com", "DF")
-# end
-
-# add_fake_contacts!
-
 DataMapper.finalize
 DataMapper.auto_upgrade!
+
+def get_search_results(search_string)
+  Contact.all(:first_name.like => search_string) | Contact.all(:last_name.like => search_string)
+end
 
 def get_crm_count
   @@crm_count = Contact.count
@@ -75,6 +47,13 @@ get '/' do
   redirect to("/contacts")
 end
 
+get "/search" do
+  @search_string = params[:search_string]
+  @page_name = "Search results"
+  erb:search
+
+end
+
 get "/contacts" do
   @page_name = "View all contacts"
   @notification = params[:notification]
@@ -96,8 +75,6 @@ post '/contacts' do
     :email => params[:email],
     :note => params[:note]
   )
-
-  # new_id = (@@rolodex.add_contact(params[:first_name], params[:last_name], params[:email], params[:note]) - 1)
   new_id = contact.id
   get_crm_count
   redirect to("/contacts?notification=added&notification_id=#{new_id}")
