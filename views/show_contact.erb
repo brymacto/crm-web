@@ -3,7 +3,7 @@
   <tr><th>First Name</th><td><%= @contact.first_name %></td></tr>
   <tr><th>Last Name</th><td><%= @contact.last_name %></td></tr>
   <tr><th>Email</th><td><a href="mailto:<%= @contact.email %>"><%= @contact.email %></a></td></tr>
-  <tr><th>Notes</th><td><%= @contact.notes %></td></tr>
+  <tr><th>Notes</th><td><%= @contact.note %></td></tr>
   <tr><th>Actions</th><td>
     <a href="/contacts/<%= @contact.id %>/edit"><i class="fa fa-pencil fa-fw"></i></a>
     <a href="javascript:{}" onclick="document.getElementById('delete_form').submit(); return false;"><i class="fa fa-trash"></i></a>
