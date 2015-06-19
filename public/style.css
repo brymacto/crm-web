@@ -136,8 +136,12 @@ body > div.wrapper > footer {
   margin: 25px 1.5%;
   padding-top: 10px;
   font-size: 0.75em;
-  text-align: right;
+
 }
+
+body > div.wrapper > footer span.copy {
+float:right;
+  }
 
 div.wrapper {
   max-width: 1140px;
