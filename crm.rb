@@ -55,7 +55,7 @@ end
 post '/contacts' do
   new_id = (@@rolodex.add_contact(params[:first_name], params[:last_name], params[:email], params[:notes]) - 1)
   get_crm_count
-
+  redirect to("/contacts?notification=added&notification_id=#{new_id}")
 end
 
 get "/contacts/:id" do
