@@ -14,31 +14,30 @@
       <h1><a href="/"><%= @@crm_app_name %></a></h1>
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
+          <!--<li><a href="/">Home</a></li> -->
           <li><a href="/contacts">View all contacts</a></li>
           <li><a href="/contacts/new">Add new contact</a></li>
         </ul>
       </nav>
     </header>
 
-
     <section class="twothirds">
       <h2><%= @page_name %></h2>
       <%= yield %>
-
-
-      <!-- please complete me with links to other actions -->
     </ul>
   </section>
 
   <aside>
 
+    <div>
+      <h2>Stats</h2>
+      Number of contacts: <%= @@crm_count %>
+    </div>
 
-    <h2>Stats</h2>
-    <ul>
-
-      <li>Number of contacts: <%= @@crm_count %></li>
-    </ul>
+    <div>
+      <h2>Support</h2>
+      <p>Need help? Email <a href="mailto:brymac@gmail.com">brymac@gmail.com</a>.</p>
+    </div>
   </aside>
 
   <div style="clear:both"></div>

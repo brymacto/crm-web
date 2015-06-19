@@ -33,6 +33,7 @@ end
 get '/' do
   @page_name = "Home"
   erb :index
+  redirect to("/contacts")
 end
 
 get "/contacts" do

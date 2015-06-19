@@ -10,9 +10,77 @@ p {
   margin-top: 1em;
 }
 
+a {
+  color: #0184CD;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ol,
+ul {
+  list-style: disc;
+  margin: 16px 0px 0px 0px;
+  padding-left: 30px;
+}
+
+li {
+  margin-bottom: 4px;
+  padding-left: 10px;
+}
+
+h1,
+h1>a,
+h1>a:hover {
+  color: #FC635B;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 5em;
+  margin-bottom: 0px;
+  display: inline;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 1.5em;
+  background-color: #0184CD;
+  color: #fff;
+  font-weight: 100;
+  padding: 5px 15px;
+  margin-bottom: 0.5em;
+}
+
+aside h2 {
+  background-color: inherit;
+  color:#8AACB2;
+  border-left:5px solid #8AACB2;
+}
+
+aside div {
+  margin:0px 0px 30px 0px;
+}
+
+h3 {
+  font-size: 1.25em;
+  color: #023373;
+  font-weight: 600;
+}
+
+h4 {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
 table {
   border-collapse: collapse;
   margin-bottom: 1em;
+  width: 100%;
 }
 
 table,
@@ -53,12 +121,6 @@ section footer a.next {
   text-align: right;
 }
 
-a#backto {
-  display: block;
-  text-align: right;
-  padding: 3px;
-}
-
 body > div.wrapper > footer {
   border-top: 1px dotted #8AACB2;
   display: block;
@@ -67,27 +129,6 @@ body > div.wrapper > footer {
   padding-top: 10px;
   font-size: 0.75em;
   text-align: right;
-}
-
-p.notification_msg {
-  padding: 10px;
-  border: 1px solid #FC635B;
-  color: #FC635B;
-  margin-bottom: 15px;
-}
-
-p.notification_msg a {
-  color: #FC635B;
-  float: right;
-}
-
-a {
-  color: #0184CD;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
 
 div.wrapper {
@@ -99,54 +140,6 @@ header {
   margin: 50px auto 25px auto;
   padding-left: 1.5%;
   padding-right: 1.5%;
-}
-
-ol,
-ul {
-  list-style: disc;
-  margin: 16px 0px 0px 0px;
-  padding-left: 30px;
-}
-
-li {
-  margin-bottom: 4px;
-  padding-left: 10px;
-}
-
-h1,
-h1>a,
-h1>a:hover {
-  color: #FC635B;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 100;
-  text-decoration: none;
-}
-
-h1 {
-  font-size: 5em;
-  margin-bottom: 0px;
-  display: inline;
-  font-weight: 100;
-}
-
-h2 {
-  font-size: 1.5em;
-  background-color: #0184CD;
-  color: #fff;
-  font-weight: 100;
-  padding: 5px 15px;
-  margin-bottom: 0.5em;
-}
-
-h3 {
-  font-size: 1.25em;
-  color: #023373;
-  font-weight: 600;
-}
-
-h4 {
-  font-weight: bold;
-  font-size: 1.1em;
 }
 
 header nav {
@@ -204,8 +197,16 @@ section.full {
   width: 100%;
 }
 
-table {
-  width: 100%;
+p.notification_msg {
+  padding: 10px;
+  border: 1px solid #FC635B;
+  color: #FC635B;
+  margin-bottom: 15px;
+}
+
+p.notification_msg a {
+  color: #FC635B;
+  float: right;
 }
 
 form > div.field {
@@ -260,13 +261,6 @@ form > div.field > input[type=submit] {
   border-width: 0px;
   font-size: 1em;
   clear: both;
-}
-
-input[type=text]:focus {
-
-  /*border:3px solid #FC635B;*/
-
-  /*background-color:#fff;*/
 }
 
 /* Smartphones (portrait and landscape) ----------- */
