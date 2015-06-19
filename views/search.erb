@@ -9,29 +9,38 @@
     <th>Email</th>
     <th>Actions</th>
   </tr>
-  <% get_search_results(@search_string).each do |contact| %>
-  <tr>
-    <td>
-      <a href="/contacts/<%= contact.id %>"><%= contact.id %></a>
-    </td>
-    <td>
-      <%= contact.first_name %>
-    </td>
-    <td>
-      <%= contact.last_name %>
-    </td>
-    <td>
-    <a href="mailto:<%= contact.email %>"><%= contact.email %></a>
-    </td>
-    <td>
-      <a href="/contacts/<%= contact.id %>"><i class="fa fa-ellipsis-h"></i></a>
-      <a href="/contacts/<%= contact.id %>/edit"><i class="fa fa-pencil fa-fw"></i></a>
-      <a href="javascript:{}" onclick="document.getElementById('delete_form_<%= contact.id %>').submit(); return false;"><i class="fa fa-trash"></i></a>
-    </td>
-  </tr>
-<form action="/contacts/<%= contact.id %>" method="post" id="delete_form_<%= contact.id %>" style="display:none">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" name="Delete Contact" value="Delete contact" style="display:none">
-</form>
+  <% if get_search_results(@search_string).count > 0 %>
+    <% get_search_results(@search_string).each do |contact| %>
+      <tr>
+        <td>
+          <a href="/contacts/<%= contact.id %>"><%= contact.id %></a>
+        </td>
+        <td>
+          <%= contact.first_name %>
+        </td>
+        <td>
+          <%= contact.last_name %>
+        </td>
+        <td>
+        <a href="mailto:<%= contact.email %>"><%= contact.email %></a>
+        </td>
+        <td>
+          <a href="/contacts/<%= contact.id %>"><i class="fa fa-ellipsis-h"></i></a>
+          <a href="/contacts/<%= contact.id %>/edit"><i class="fa fa-pencil fa-fw"></i></a>
+          <a href="javascript:{}" onclick="document.getElementById('delete_form_<%= contact.id %>').submit(); return false;"><i class="fa fa-trash"></i></a>
+        </td>
+      </tr>
+      <form action="/contacts/<%= contact.id %>" method="post" id="delete_form_<%= contact.id %>" style="display:none">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" name="Delete Contact" value="Delete contact" style="display:none">
+      </form>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="5">
+        No records found for search term "<%= @search_string %>".
+      </td>
+    </tr>
   <% end %>
+
 </table>
