@@ -3,7 +3,6 @@ require 'data_mapper'
 DataMapper.setup(:default, "sqlite3:database.sqlite3")
 @@crm_app_name = "BoomCRM"
 @@year = Time.now.year
-# @@rolodex = Rolodex.new
 
 class Contact
   include DataMapper::Resource
@@ -14,39 +13,60 @@ class Contact
   property :note, String
 end
 
+# def add_contact(first_name, last_name, email, note)
+#   contact = Contact.create(
+#     :first_name => first_name,
+#     :last_name => last_name,
+#     :email => email,
+#     :note => note
+#   )
+# end
+
+# def add_fake_contacts!
+#   add_contact("Fernando", "Muslera", "fernandomuslera@gmail.com", "GK")
+#   add_contact("Rodrigo", "Muñoz", "rod_munoz@hotmail.com", "GK")
+#   add_contact("Martín", "Silva", "silvamar@gmail.com", "GK")
+#   add_contact("Carlos", "Sánchez", "c_sanchez@ymail.com", "MF")
+#   add_contact("Cristian", "Rodríguez", "rodriguezcristian@gmail.com", "MF")
+#   add_contact("Giorgian", "De Arrascaeta", "giorgiandea@gmail.com", "MF")
+#   add_contact("Nicolás", "Lodeiro", "thenicolas@hotmail.com", "MF")
+#   add_contact("Guzmán", "Pereira", "periera1991@gmail.com", "MF")
+#   add_contact("Egidio", "Arévalo Ríos", "egiegidio@gmail.com", "MF")
+#   add_contact("Álvaro", "González", "alvgonza@gmail.com", "DF")
+#   add_contact("José", "Giménez", "joseg@gmail.com", "DF")
+#   add_contact("Diego", "Godín", "mr_godin@yahoo.com", "DF")
+#   add_contact("Jorge", "Fucile", "fucile_jorge@hotmail.com", "DF")
+#   add_contact("Álvaro", "Periera", "aperiera@gmail.com", "DF")
+#   add_contact("Gastón", "Silva", "bigsilva@yahoo.com", "DF")
+#   add_contact("Mathías", "Corujo", "corujom@gmail.com", "DF")
+#   add_contact("Maxi", "Pereira", "maximaxip@gmail.com", "DF")
+#   add_contact("Sebastián", "Coates", "theseb1990@gmail.com", "DF")
+# end
+
+# add_fake_contacts!
+
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
 def get_crm_count
   @@crm_count = Contact.count
-  # @@crm_count = @@rolodex.contacts.length
 end
-
 get_crm_count
 
-def get_prev_contact_id(current_id)
-  # @prev_contact = @@rolodex.find(current_id).id - 1
-  # if @@rolodex.find(@prev_contact)
-  #   @@rolodex.find(@prev_contact).id
-  # else
-  #   @@rolodex.find_by_element_id(@@rolodex.length - 1).id
-  # end
-  0
+def get_prev_contact_id(current_contact_id)
+  if Contact.last({:id.lt => current_contact_id})
+    Contact.last({:id.lt => current_contact_id}).id
+  else
+    Contact.last({}).id
+  end
 end
 
-def get_next_contact_id(current_id)
-  # @@rolodex.contacts.each_with_index do |contact, index|
-  #   contact_id = contact.id
-  #     if contact_id.to_i == (current_id).to_i
-  #       if @@rolodex.contacts[index + 1]
-  #         return @@rolodex.contacts[index + 1].id
-  #       else
-  #         @@rolodex.find_id_by_index(0)
-  #       end
-  #     end
-  # end
-  # return @@rolodex.find_id_by_index(0)
-  0
+def get_next_contact_id(current_contact_id)
+  if Contact.first({:id.gt => current_contact_id})
+    Contact.first({:id.gt => current_contact_id}).id
+  else
+    Contact.first({}).id
+  end
 end
 
 get '/' do
