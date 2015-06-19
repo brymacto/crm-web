@@ -21,15 +21,15 @@ def get_prev_contact_id(current_id)
 end
 
 def get_next_contact_id(current_id)
-
-# Look up index of ID in contacts array.
-# Return ID of next array element (index+1)
-
-@@rolodex.contacts.each_with_index do |contact, index|
-  contact_id = contact.id
-    if contact_id.to_i == (current_id).to_i
-      return @@rolodex.contacts[index + 1].id
-    end
+  @@rolodex.contacts.each_with_index do |contact, index|
+    contact_id = contact.id
+      if contact_id.to_i == (current_id).to_i
+        if @@rolodex.contacts[index + 1]
+          return @@rolodex.contacts[index + 1].id
+        else
+          @@rolodex.find_id_by_index(0)
+        end
+      end
   end
   return @@rolodex.find_id_by_index(0)
 end
