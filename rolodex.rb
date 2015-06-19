@@ -31,6 +31,8 @@ class Rolodex
 
   def initialize
     @contacts = []
+    @contacts_id_to_index = {} #Hash linking ID to index.
+    @contacts_arr = [] # Array of hashes.  Each hash will contain two keys, ID and Index.
     add_fake_contacts!
   end
 
@@ -41,11 +43,27 @@ class Rolodex
   def add_contact(first_name, last_name, email, notes)
     contact = Contact.new(@@id, first_name, last_name, email, notes)
     @contacts << contact
+    @contacts_id_to_index[@@id] = (@contacts.length - 1) # Example: 1000 => 0.  Key is ID.  Value is index.
+    p @contacts_id_to_index
     @@id += 1
+  end
+
+  def find_index_by_id(id)
+    @contacts_id_to_index[id]
+  end
+
+  def find_id_by_index(index)
+    @contacts_id_to_index.key(index) || 0
+  end
+
+  def contacts_id_to_index
+    @contacts_id_to_index
   end
 
   def remove_contact(contact)
     @contacts.delete(contact)
+    @contacts_id_to_index.delete(contact.id)
+    p @contacts_id_to_index
     @contacts.reject! { |contact| contact == nil }
   end
 

@@ -21,13 +21,17 @@ def get_prev_contact_id(current_id)
 end
 
 def get_next_contact_id(current_id)
-  puts "************Current ID: #{current_id}.  @@rolodex.find(current_id): #{@@rolodex.find(current_id)}" # Troubleshooting situation in which item has been deleted.
-  @next_contact = @@rolodex.find(current_id).id + 1
-  if @@rolodex.find(@next_contact)
-    @@rolodex.find(@next_contact).id
-  else
-    @@rolodex.find_by_element_id(0).id
+
+# Look up index of ID in contacts array.
+# Return ID of next array element (index+1)
+
+@@rolodex.contacts.each_with_index do |contact, index|
+  contact_id = contact.id
+    if contact_id.to_i == (current_id).to_i
+      return @@rolodex.contacts[index + 1].id
+    end
   end
+  return @@rolodex.find_id_by_index(0)
 end
 
 get '/' do
