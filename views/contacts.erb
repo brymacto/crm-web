@@ -12,7 +12,7 @@
     <th>ID</th>
     <th>First Name</th>
     <th>Last Name</th>
-    <th>Email</th>
+    <th class="emailcol">Email</th>
     <th>Actions</th>
   </tr>
   <% @contacts.each do |contact| %>
@@ -26,7 +26,7 @@
     <td>
       <%= contact.last_name %>
     </td>
-    <td>
+    <td class="emailcol">
     <a href="mailto:<%= contact.email %>"><%= contact.email %></a>
     </td>
     <td>

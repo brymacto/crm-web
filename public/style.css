@@ -110,6 +110,7 @@ th {
 
 section footer {
   clear: both;
+  display:block;
 }
 
 section footer a {
@@ -330,7 +331,11 @@ form > div.field > input[type=submit] {
 
 }
 
-@media (min-width:320px) and (max-width:550px) {
+@media (min-width:320px) and (max-width:800px) {
+  th.emailcol, td.emailcol {display:none;}
+}
+
+@media (min-width:320px) and (max-width:600px) {
 
   /* Styles */
   section,
@@ -341,10 +346,13 @@ form > div.field > input[type=submit] {
     width: 95%;
   }
 
-  header ul {
+  header nav, header nav ul {
     float: none;
+    font-size:1em;
   }
-
+  body > div.wrapper > footer span.copy {
+    display:block;text-align:left;float:none;margin-top:1em;
+  }
   h1 {
     font-size: 2.5em;
   }
