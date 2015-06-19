@@ -1,9 +1,23 @@
 require_relative 'rolodex'
-require_relative 'contact'
+# require_relative 'contact'
 require 'sinatra'
+require 'data_mapper'
+DataMapper.setup(:default, "sqlite3:database.sqlite3")
 @@crm_app_name = "BoomCRM"
 @@year = Time.now.year
 @@rolodex = Rolodex.new
+
+class Contact
+  include DataMapper::Resource
+  property :id, Serial
+  property :first_name, String
+  property :last_name, String
+  property :email, String
+  property :note, String
+end
+
+DataMapper.finalize
+DataMapper.auto_upgrade!
 
 def get_crm_count
   @@crm_count = @@rolodex.contacts.length
